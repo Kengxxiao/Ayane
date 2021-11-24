@@ -1,0 +1,19 @@
+{
+    "1": "hp",
+    "2": "atk",
+    "3": "def",
+    "4": "magic_str",
+    "5": "magic_def",
+    "6": "physical_critical",
+    "7": "magic_critical",
+    "8": "wave_hp_recovery",
+    "9": "wave_energy_recovery",
+    "10": "hp_recovery_rate",
+    "11": "physical_penetrate",
+    "12": "magic_penetrate",
+    "13": "life_steal",
+    "14": "dodge",
+    "15": "energy_reduce_rate",
+    "16": "energy_recovery_rate",
+    "17": "accuracy"
+  }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <img width="64" height="64" :src="'https://redive.estertion.win/icon/unit/' + (unit.id + 30) + '.webp'" v-for="unit in unit_list"
+        @click="insertSelected(unit.id)" :style="selected.indexOf(unit.id) != -1 ? 'opacity: 0.3' : ''"/>
+        <hr/>
+        <img width="64" height="64" :src="'https://redive.estertion.win/icon/unit/' + (unit + 30) + '.webp'" v-for="unit in selected" @click="insertSelected(unit)"/>
+        <br/>
+        <button @click="searchInnerArenaLog">内部搜索</button>
+        <hr/>
+        <template v-if="response.length != 0">
+            <span>共查询到 {{response.length}} 条记录。</span>
+            <template v-for="resp in response">
+                <p>时间：{{new Date(resp.time * 1000).toLocaleString()}}</p>
+                <img width="64" height="64" :src="'https://redive.estertion.win/icon/unit/' + (unit + 30) + '.webp'" v-for="unit in resp.unit_id" v-if="unit != 0"/>
+            </template>
+        </template>
+        <hr/>
+        <template v-if="clan_battle_config">
+            <p>服务器公会战调整区</p>
+            <p>当前会战ID：{{clan_battle_config.now_id}}，周目：{{clan_battle_config.now_lap}}</p>
+            <span>调整ID</span>&nbsp;
+            <select v-model="selected_clan_battle_id">
+                <option v-for="id in clan_battle_config.ids" :value="id">{{id}}</option>
+            </select>&nbsp;
+            <span>调整周目</span>&nbsp;
+            <input type="number" v-model="selected_lap_num"/>&nbsp;
+            <button @click="setConfig">调整服务器设置</button>
+            <p v-if="clan_battle_resp">{{clan_battle_resp.msg}}</p>
+        </template>
+    </div>
+</body>
+<script src='https://cdn.jsdelivr.net/npm/vue@3.2.20/dist/vue.global.prod.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/axios@0.22.0/dist/axios.min.js'></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                unit_list: [],
+                selected: [],
+                response: [],
+                clan_battle_config: undefined,
+                selected_clan_battle_id: 1001,
+                selected_lap_num: 1,
+                clan_battle_resp: undefined,
+                server_url: ''
+            }
+        },
+        mounted() {
+            let self = this;
+            axios(this.server_url + '/himari_debug/getUnitList?format=json').then(x => {
+                self.unit_list = x.data.data.unit_list
+            })
+            axios(this.server_url + '/himari_debug/getClanBattleIdList?format=json').then(x => {
+                self.clan_battle_config = x.data.data
+                self.selected_clan_battle_id = self.clan_battle_config.now_id
+                self.selected_lap_num = self.clan_battle_config.now_lap
+            })
+        },
+        methods: {
+            setConfig() {
+                let self = this;
+                axios({
+                    url: this.server_url + '/himari_debug/setClanBattleConfig?format=json',
+                    data: {
+                        id: self.selected_clan_battle_id,
+                        lap: self.selected_lap_num
+                    },
+                    method: 'POST'
+                }).then(x => {
+                    self.clan_battle_resp = x.data.data;
+                    if (self.clan_battle_resp.now_id) {
+                        self.clan_battle_config.now_id = self.clan_battle_resp.now_id
+                        self.clan_battle_config.now_lap = self.clan_battle_resp.now_lap
+                    }
+                })
+            },
+            sortGame(a, b) {
+                if (a == 0 || b == 0)
+                    return 0;
+                const c = this.unit_list.find(x => x.id == b).width - this.unit_list.find(x => x.id == a).width
+                if (c != 0)
+                    return c;
+                return b - a
+            },
+            insertSelected(id) {
+                const index = this.selected.indexOf(id)
+                if (index != -1)
+                    this.selected.splice(index, 1)
+                else {
+                    if (this.selected.length >= 5) {
+                        alert('添加已满 不能再添加');
+                        return;
+                    }
+                    this.selected.push(id)
+                    let self = this
+                    this.selected.sort(this.sortGame)
+                }
+            },
+            searchInnerArenaLog() {
+                if (this.selected.length != 5) {
+                    alert('暂时只支持五人查询');
+                    return
+                }
+                this.response = []
+                let newArray = {}
+                for (let i = this.selected.length; i > 0; i--) {
+                    newArray['unit_id_' + (this.selected.length - i + 1)] = this.selected[i - 1]
+                }
+                let self = this
+                axios({
+                    url: this.server_url + '/himari_debug/getArenaLogWithUnitId?format=json',
+                    data: newArray,
+                    method: 'POST'
+                }).then(x => {
+                    x.data.data.response.forEach(x2 => {
+                        x2.unit_id.sort(self.sortGame)
+                    })
+                    self.response = x.data.data.response
+                })
+            }
+        }
+    }).mount('#app')
+</script>
+</html>

@@ -1,0 +1,291 @@
+{
+  "equipment_enhance": {
+    "lower_rank": 2,
+    "coin_cost": [
+      {
+        "idx": 2,
+        "cost": 120
+      },
+      {
+        "idx": 3,
+        "cost": 150
+      },
+      {
+        "idx": 4,
+        "cost": 200
+      },
+      {
+        "idx": 5,
+        "cost": 200
+      }
+    ],
+    "jewel_cost": [
+      {
+        "idx": 2,
+        "cost": 1
+      },
+      {
+        "idx": 3,
+        "cost": 1
+      },
+      {
+        "idx": 4,
+        "cost": 1
+      },
+      {
+        "idx": 5,
+        "cost": 1
+      }
+    ]
+  },
+  "quest": {
+    "recovery_time": 360,
+    "challenge_count_training_gold": 2,
+    "challenge_count_training_exp": 2,
+    "challenge_count_elite": 3,
+    "challenge_count_special_gold": 2,
+    "challenge_count_special_exp": 2
+  },
+  "dungeon": {
+    "support_rental_cost_coefficient": 10,
+    "border_unit_level": 10,
+    "support_lv_band": 30
+  },
+  "unit": {
+    "max_evolution": 5,
+    "change_to_material": [
+      {
+        "key": 1,
+        "val": 1
+      },
+      {
+        "key": 2,
+        "val": 10
+      },
+      {
+        "key": 3,
+        "val": 50
+      }
+    ]
+  },
+  "arena": {
+    "time_reset_cost": 10,
+    "count_reset_cost": 50,
+    "search_interval": 60
+  },
+  "grand_arena": {
+    "time_reset_cost": 10,
+    "count_reset_cost": 50,
+    "search_interval": 60
+  },
+  "limit": {
+    "limit_equipment_num": 9999,
+    "limit_gold": 999999999,
+    "limit_free_gold": 999999999,
+    "limit_jewel": 99999999,
+    "limit_free_jewel": 99999999
+  },
+  "clan": {
+    "max_member_num": 30,
+    "max_leader_num": 1,
+    "max_sub_leader_num": 2,
+    "dispatch_interval": 1800,
+    "leader_change_limit_days": 14,
+    "chat_num_per_time": 10,
+    "chat_max_num": 500,
+    "chat_polling_time": 3,
+    "chat_expire_sec": 1209600,
+    "gold_unit_period": 1800,
+    "gold_base": 600,
+    "gold_rate_power": 0.06,
+    "gold_per_dispatch_count": 5,
+    "dispatch_count_bonus_limit": 450000000,
+    "dispatch_time_bonus_limit": 450000000,
+    "rejoin_restriction_time": 86400,
+    "like_reward": 10,
+    "daily_like_reward_limit": 1,
+    "be_liked_reward": 500,
+    "daily_be_liked_reward_limit": 10,
+    "equipment_request_interval": 28800,
+    "equipment_request_expire_sec": 2592000,
+    "active_user_limit_date_clan_invite": 1209600,
+    "search_clan_default_activity": 0,
+    "search_clan_default_join_condition": 1,
+    "search_clan_default_member_condition_range": 0,
+    "notify_support_gold_border": 5000000,
+    "clan_activity_max": 17,
+    "chat_battle_log_open_time": "2019-03-14 12:00:00",
+    "rental_cost_fixed_border_team_lv": 50,
+    "rental_cost_rate_per_team_lv": 1000,
+    "rental_cost_fixed": 50000
+  },
+  "room": {
+    "extension_room_storage_cost": 25,
+    "extension_room_storage_num": 25,
+    "max_room_storage_num": 1500,
+    "shortening_time": 720,
+    "use_jewel": 1,
+    "not_stock_term": 7,
+    "max_stock_count": 30
+  },
+  "recover_challenge_count": {
+    "recovery": 3,
+    "recovery_max_count": 1,
+    "cost": [
+      50
+    ]
+  },
+  "very_hard_recover_challenge_count": {
+    "recovery": 3,
+    "recovery_max_count": 1,
+    "cost": [
+      50
+    ]
+  },
+  "high_rarity_equip_recover_challenge_count": {
+    "recovery": 5,
+    "recovery_max_count": 3,
+    "cost": [
+      50
+    ]
+  },
+  "equip_recover_challenge_count": {
+    "recovery": 5,
+    "recovery_max_count": 3,
+    "cost": [
+      50
+    ]
+  },
+  "hatsune_recover_challenge_count": {
+    "recovery": 3,
+    "recovery_max_count": 0,
+    "cost": [
+      50
+    ]
+  },
+  "cooperation": {
+    "open_time": 1521529200,
+    "support_skill_gauge_time": 30,
+    "chat_num_per_time": 20,
+    "chat_polling_time": 3,
+    "challenge_count_limit": 20,
+    "resume_timeout": 30,
+    "ticket_upper_limit": 12
+  },
+  "clan_battle": {
+    "default_difficulty": 1,
+    "default_challenge_count": 0,
+    "clan_point_coefficient": 1,
+    "support_rental_cost_coefficient": 10,
+    "border_unit_level": 10,
+    "grace_time": 900,
+    "gold_unit_period": 1800,
+    "gold_base": 600,
+    "gold_rate_power": 0.06,
+    "gold_per_dispatch_count": 5,
+    "dispatch_count_bonus_limit": 450000000,
+    "dispatch_time_bonus_limit": 450000000,
+    "allowable_damage_coefficient": 1.3,
+    "hp_recovery_time": 240,
+    "reset_hp_by_time": 1,
+    "reset_tp_by_time": 1,
+    "can_use_hp_border": 50,
+    "reset_support_unit": 0,
+    "carry_over_disable_flag": 0,
+    "carry_over_disable_time": "2018-06-25 05:00:00",
+    "carry_over_additional_time": 10,
+    "over_kill_time_coefficient": 1,
+    "support_lv_band": 30,
+    "monster_detail_reload_interval": 10,
+    "open_clan_battle_battle_mission_time": "2020-06-11 15:00:00",
+    "open_clan_battle_score_mission_time": "2020-06-11 15:00:00",
+    "mode_open_time": 4093387200,
+    "mode_change_limit_hours": 41,
+    "mode_change_limit_start_hours": 120,
+    "mode_change_limit_remind_hours": 24,
+    "party_copy_open_time": 1563829200,
+    "open_challenge_reward_time": "2099-11-24 05:00:00"
+  },
+  "tower": {
+    "initial_energy": 0,
+    "usable_unit_count": 0,
+    "timeup_hp_penalty": 1000,
+    "timeup_energy_penalty": 1000,
+    "support_rental_cost_coefficient": 10,
+    "reduce_enemy_energy_value": 300,
+    "reduce_enemy_energy_lower_limit": 0,
+    "get_cleared_ex_quest_interval": 3,
+    "support_lv_band": 30
+  },
+  "skin_change": {
+    "open_time": 1529046000
+  },
+  "battle_log_type": {
+    "button_tap": 1,
+    "wave_end_hp": 1,
+    "wave_end_damage_amount": 1,
+    "break": 1
+  },
+  "send_api": {
+    "notice": 1,
+    "home": 1
+  },
+  "normal_gacha": {
+    "term_list": [
+      {
+        "time": "05:00:00"
+      },
+      {
+        "time": "12:00:00"
+      }
+    ]
+  },
+  "cartoon": {
+    "open_time_sp": 1529046000,
+    "open_time_dmm": 1529046000
+  },
+  "unique_equip": {
+    "limit_list": [
+      {
+        "equip_slot": 1,
+        "promotion": 7
+      }
+    ]
+  },
+  "unread_story_notice": {
+    "time": "12:00:00",
+    "type": 1
+  },
+  "max_boss_battle_skip_num": 99,
+  "max_gacha_count": 400,
+  "friend": {
+    "limit_accept": 40,
+    "limit_request": 30,
+    "limit_pending": 30
+  },
+  "friend_support_unit": {
+    "support_interval": 1800,
+    "gold_unit_period": 1800,
+    "gold_base": 600,
+    "gold_rate_power": 0.06,
+    "gold_per_support_count": 5,
+    "support_count_bonus_limit": 450000000,
+    "support_time_bonus_limit": 450000000,
+    "support_count_bonus_daily_limit": 500000,
+    "team_level_range": 30,
+    "support_lv_band": 999,
+    "limit_unit_level": 10,
+    "rental_interval": 10800,
+    "consume_gold_rate": 1000,
+    "consume_gold_limit": 50000
+  },
+  "kaiser_battle": {
+    "support_limit": 3,
+    "support_lv_band": 500,
+    "allowable_damage_coefficient": 1.3,
+    "allowable_enemy_point": 60,
+    "allowable_barrier_point": 201,
+    "remaining_count_max": 20,
+    "remaining_count_init": 20
+  }
+}

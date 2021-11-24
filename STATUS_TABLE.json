@@ -1,0 +1,19 @@
+{
+  "1": "hp",
+  "2": "atk",
+  "3": "def",
+  "4": "matk",
+  "5": "mdef",
+  "6": "crt",
+  "7": "mcrt",
+  "10": "hrec",
+  "11": "erec",
+  "15": "hrecrate",
+  "12": "pnt",
+  "13": "mpnt",
+  "9": "life_steal",
+  "8": "dodge",
+  "14": "erec_rate",
+  "16": "ered_rate",
+  "17": "accuracy"
+}
